@@ -1,5 +1,5 @@
 //Spencer Paradis-Fichtner
-//2/28/20
+//2/28/20 updated 2/29/20
 
 
 
@@ -8,17 +8,15 @@ public class superTask {
 
 
     /**
-     *Just a fun little experiment to see how a super task would be implemented
-     * and also to see the stack overflow error.
-     *
-     * @param seconds initial delay
-     * @param counter starting point of your counter and keeps track for subsequent calls
+     *Just a fun little experiment to see a super task in action and also to see the stack overflow error
+     * @param seconds
+     * @param counter
      */
     public static void task(int seconds, int counter){
         int count =counter;
-        int time = seconds*1000; // converts seconds to appropriate milliseconds
+        int milliseconds = seconds*1000;
         try {
-            Thread.sleep(seconds/2); // waits half the time the first time
+            Thread.sleep(milliseconds/2); // waits half the time the first time
             System.out.println(count);
         } catch(InterruptedException e) {
             //
@@ -26,11 +24,11 @@ public class superTask {
             //
         }
         count++;
-        task(time/2, count);
+        task(seconds/2, count);
     }
 
     /**
-     * just a basic counter thats counts up by 1 every second. Nothing special.
+     * just a basic counter thats counts up by 1 every second. Nothing special. Just shows how "Thread.sleep" works.
      * @param count desired starting point
      */
     public static void counter(int count) {
@@ -45,22 +43,14 @@ public class superTask {
         counter(count);
     }
 
-
-
-
-
-
-
-
-
+    /**
+     * main
+     * @param args
+     */
     public static void main(String[] args){
-        task(60, 0);
+        task(60, 1);
         //counter(0);
     }
-
-
-
-
 
 
 }
